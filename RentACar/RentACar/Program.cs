@@ -16,7 +16,9 @@ namespace RentACar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            AppData.ViewsRepository views = new AppData.ViewsRepository();
+            views.LoginView = new Views.Login();
+            Application.Run(views.LoginView);
         }
     }
 }
