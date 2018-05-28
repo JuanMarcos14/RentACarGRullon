@@ -12,6 +12,7 @@ namespace RentACar.Views
 {
     public partial class Login : Form
     {
+        private readonly Services.LoginServices _service = new Services.LoginServices();
         public Login()
         {
             InitializeComponent();
@@ -21,7 +22,14 @@ namespace RentACar.Views
 
         private void button1_Click(object sender, EventArgs e)
         {      
-
+            if (_service.Login(textBox1.Text, textBox2.Text))
+            {
+                MessageBox.Show("SI");
+            }
+            else
+            {
+                MessageBox.Show("NO");
+            }
         }
     }
 }
