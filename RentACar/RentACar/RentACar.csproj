@@ -34,24 +34,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JetEntityFrameworkProvider, Version=6.0.0.0, Culture=neutral, PublicKeyToken=756cf6beb8fe7b41, processorArchitecture=x86">
-      <HintPath>..\packages\JetEntityFrameworkProvider.6.1.4\lib\JetEntityFrameworkProvider.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Siuben">
-      <HintPath>D:\Proyectos\Siuben.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,13 +57,50 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppData\ViewsRepository.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\RentACarDBDataSet.Designer.cs">
+    <Compile Include="Models\Clientes.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CombustiblesTipos.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Empleados.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inspecciones.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Marcas.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Modelos.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RentACarModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RentACarDBDataSet.xsd</DependentUpon>
+      <DependentUpon>RentACarModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RentACarModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RentACarModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentACarModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rentas.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vehiculos.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VehiculosTipos.cs">
+      <DependentUpon>RentACarModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Colors.cs" />
     <Compile Include="Services\LoginServices.cs" />
     <Compile Include="Views\Login.cs">
@@ -91,6 +121,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Models\RentACarModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RentACarModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\RentACarModel.edmx.diagram">
+      <DependentUpon>RentACarModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -101,17 +138,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Models\RentACarDBDataSet.xsc">
-      <DependentUpon>RentACarDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Models\RentACarDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RentACarDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Models\RentACarDBDataSet.xss">
-      <DependentUpon>RentACarDBDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -121,8 +147,19 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\RentACarModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RentACarModel.edmx</DependentUpon>
+      <LastGenOutput>RentACarModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RentACarModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RentACarModel.edmx</DependentUpon>
+      <LastGenOutput>RentACarModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\Database\RentACarDB.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
