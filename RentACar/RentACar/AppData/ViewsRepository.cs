@@ -9,6 +9,7 @@ namespace RentACar.AppData
 {
     class ViewsRepository
     {
-        public Login LoginView { get; set; }
+        public static Login LoginView { get; set; }
+        public static Dashboard DashboardView { get; set; }
     }
 }

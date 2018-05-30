@@ -24,7 +24,9 @@ namespace RentACar.Views
         {      
             if (_service.Login(textBox1.Text, textBox2.Text))
             {
-                MessageBox.Show("SI");
+                AppData.ViewsRepository.DashboardView = (AppData.ViewsRepository.DashboardView == null) ? new Dashboard() : AppData.ViewsRepository.DashboardView;
+                this.Hide();
+                AppData.ViewsRepository.DashboardView.Show();
             }
             else
             {

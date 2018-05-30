@@ -1,9 +1,9 @@
-﻿using Siuben.Messages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RentACar.Models;
 
 namespace RentACar.Services
 {
@@ -11,16 +11,18 @@ namespace RentACar.Services
     {
         public bool Login(string username, string password)
         {
-            try
+            using (var ctx = new GrullonRCEntities())
             {
-                Models.RentACarDBDataSet.UsuariosDataTable Usuarios = new Models.RentACarDBDataSet.UsuariosDataTable();
-                return Usuarios.Any(x => x.User == username && x.Password == password);
+                var empleado = ctx.Empleados.FirstOrDefault(user => user.User == username && user.Password == password);
+
+                if (empleado != null)
+                {
+                    AppData.CurrentSession.CurrentUser = empleado;
+                    return true;
+                }
+
+                return false;
             }
-            catch (Exception ex)
-            {
-                FileLogger.LogException(ex);
-            }
-            return false;
         }
     }
 }
