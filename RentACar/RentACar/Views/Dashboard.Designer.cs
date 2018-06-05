@@ -39,10 +39,9 @@
             this.mantenimientoDeMarcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoDeModelosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -71,8 +70,7 @@
             this.vehículosToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.empleadosToolStripMenuItem,
-            this.reportesToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem});
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(814, 25);
@@ -81,8 +79,9 @@
             // 
             // rentasToolStripMenuItem
             // 
+            this.rentasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rentasToolStripMenuItem.Image")));
             this.rentasToolStripMenuItem.Name = "rentasToolStripMenuItem";
-            this.rentasToolStripMenuItem.Size = new System.Drawing.Size(57, 21);
+            this.rentasToolStripMenuItem.Size = new System.Drawing.Size(73, 21);
             this.rentasToolStripMenuItem.Text = "Rentas";
             // 
             // vehículosToolStripMenuItem
@@ -94,12 +93,14 @@
             this.mantenimientoDeMarcasToolStripMenuItem,
             this.mantenimientoDeModelosToolStripMenuItem,
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem});
+            this.vehículosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vehículosToolStripMenuItem.Image")));
             this.vehículosToolStripMenuItem.Name = "vehículosToolStripMenuItem";
-            this.vehículosToolStripMenuItem.Size = new System.Drawing.Size(72, 21);
+            this.vehículosToolStripMenuItem.Size = new System.Drawing.Size(88, 21);
             this.vehículosToolStripMenuItem.Text = "Vehículos";
             // 
             // mantenimientoDeVehículosToolStripMenuItem
             // 
+            this.mantenimientoDeVehículosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoDeVehículosToolStripMenuItem.Image")));
             this.mantenimientoDeVehículosToolStripMenuItem.Name = "mantenimientoDeVehículosToolStripMenuItem";
             this.mantenimientoDeVehículosToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeVehículosToolStripMenuItem.Text = "Mantenimiento de Vehículos";
@@ -111,51 +112,53 @@
             // 
             // mantenimientoDeTiposDeVehículosToolStripMenuItem
             // 
+            this.mantenimientoDeTiposDeVehículosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoDeTiposDeVehículosToolStripMenuItem.Image")));
             this.mantenimientoDeTiposDeVehículosToolStripMenuItem.Name = "mantenimientoDeTiposDeVehículosToolStripMenuItem";
             this.mantenimientoDeTiposDeVehículosToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeTiposDeVehículosToolStripMenuItem.Text = "Mantenimiento de Tipos de Vehículos";
+            this.mantenimientoDeTiposDeVehículosToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoDeTiposDeVehículosToolStripMenuItem_Click);
             // 
             // mantenimientoDeMarcasToolStripMenuItem
             // 
+            this.mantenimientoDeMarcasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoDeMarcasToolStripMenuItem.Image")));
             this.mantenimientoDeMarcasToolStripMenuItem.Name = "mantenimientoDeMarcasToolStripMenuItem";
             this.mantenimientoDeMarcasToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeMarcasToolStripMenuItem.Text = "Mantenimiento de Marcas";
             // 
             // mantenimientoDeModelosToolStripMenuItem
             // 
+            this.mantenimientoDeModelosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoDeModelosToolStripMenuItem.Image")));
             this.mantenimientoDeModelosToolStripMenuItem.Name = "mantenimientoDeModelosToolStripMenuItem";
             this.mantenimientoDeModelosToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeModelosToolStripMenuItem.Text = "Mantenimiento de Modelos";
             // 
             // mantenimientoDeTiposDeCombustiblesToolStripMenuItem
             // 
+            this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Image")));
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Name = "mantenimientoDeTiposDeCombustiblesToolStripMenuItem";
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Text = "Mantenimiento de Tipos de Combustibles";
             // 
-            // empleadosToolStripMenuItem
-            // 
-            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
-            // 
             // clientesToolStripMenuItem
             // 
+            this.clientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem.Image")));
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // empleadosToolStripMenuItem
+            // 
+            this.empleadosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("empleadosToolStripMenuItem.Image")));
+            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(97, 21);
+            this.empleadosToolStripMenuItem.Text = "Empleados";
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reportesToolStripMenuItem.Image")));
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
             this.reportesToolStripMenuItem.Text = "Informes";
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(94, 21);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             // 
             // label1
             // 
@@ -224,7 +227,6 @@
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gestión de Renta de Vehículos";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -250,7 +252,6 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.StatusStrip statusStrip1;

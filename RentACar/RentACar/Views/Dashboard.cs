@@ -18,5 +18,11 @@ namespace RentACar.Views
             toolStripStatusLabel1.Text = AppData.CurrentSession.CurrentUser.Nombre;
             panel1.BackColor = Resources.Colors.Danger;
         }
+
+        private void mantenimientoDeTiposDeVehículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppData.ViewsRepository.TiposVehiculosView =  new TiposVehiculos();
+            AppData.ViewsRepository.TiposVehiculosView.Show();
+        }
     }
 }
