@@ -138,6 +138,7 @@
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Name = "mantenimientoDeTiposDeCombustiblesToolStripMenuItem";
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Text = "Mantenimiento de Tipos de Combustibles";
+            this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoDeTiposDeCombustiblesToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 

@@ -24,5 +24,11 @@ namespace RentACar.Views
             AppData.ViewsRepository.TiposVehiculosView =  new TiposVehiculos();
             AppData.ViewsRepository.TiposVehiculosView.Show();
         }
+
+        private void mantenimientoDeTiposDeCombustiblesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppData.ViewsRepository.TiposCombustiblesView = new TiposCombustibles();
+            AppData.ViewsRepository.TiposCombustiblesView.Show();
+        }
     }
 }
