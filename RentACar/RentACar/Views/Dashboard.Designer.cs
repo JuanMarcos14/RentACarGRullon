@@ -124,6 +124,7 @@
             this.mantenimientoDeMarcasToolStripMenuItem.Name = "mantenimientoDeMarcasToolStripMenuItem";
             this.mantenimientoDeMarcasToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeMarcasToolStripMenuItem.Text = "Mantenimiento de Marcas";
+            this.mantenimientoDeMarcasToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoDeMarcasToolStripMenuItem_Click);
             // 
             // mantenimientoDeModelosToolStripMenuItem
             // 
@@ -131,6 +132,7 @@
             this.mantenimientoDeModelosToolStripMenuItem.Name = "mantenimientoDeModelosToolStripMenuItem";
             this.mantenimientoDeModelosToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeModelosToolStripMenuItem.Text = "Mantenimiento de Modelos";
+            this.mantenimientoDeModelosToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoDeModelosToolStripMenuItem_Click);
             // 
             // mantenimientoDeTiposDeCombustiblesToolStripMenuItem
             // 

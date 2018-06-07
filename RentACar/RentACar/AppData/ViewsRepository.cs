@@ -13,5 +13,7 @@ namespace RentACar.AppData
         public static Dashboard DashboardView { get; set; }
         public static TiposVehiculos TiposVehiculosView { get; set; }
         public static TiposCombustibles TiposCombustiblesView { get; set; }
+        public static Marcas MarcasView { get; set; }
+        public static Modelos ModelosView { get; set; }
     }
 }

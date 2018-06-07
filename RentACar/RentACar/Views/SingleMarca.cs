@@ -12,31 +12,21 @@ using System.Windows.Forms;
 
 namespace RentACar.Views
 {
-    public partial class SingleTipoCombustible : Form
+    public partial class SingleMarca : Form
     {
         SaveAction currentAction = SaveAction.NuevaAccion;
-        private readonly Services.CombustiblesTiposService _service = new Services.CombustiblesTiposService();
-        CombustiblesTipos currentType;
+        private readonly Services.MarcasServices _service = new Services.MarcasServices();
+        Models.Marcas currentType;
 
-
-        public void TypeInit()
-        {
-            BackColor = (currentAction == SaveAction.Agregar) ? Resources.Colors.Success : Resources.Colors.Warning;
-            button1.BackColor = (currentAction == SaveAction.Agregar) ? Resources.Colors.Success : Resources.Colors.Warning;
-            button1.ForeColor = Color.White;
-            button2.BackColor = Resources.Colors.Secundary;
-            button2.ForeColor = Color.White;
-        }
-
-        public SingleTipoCombustible(SaveAction action)
+        public SingleMarca(SaveAction action)
         {
             InitializeComponent();
             currentAction = action;
             TypeInit();
-            currentType = new CombustiblesTipos();
+            currentType = new Models.Marcas();
         }
 
-        public SingleTipoCombustible(SaveAction action, CombustiblesTipos tipo)
+        public SingleMarca(SaveAction action, Models.Marcas tipo)
         {
             InitializeComponent();
             currentAction = action;
@@ -50,13 +40,22 @@ namespace RentACar.Views
             currentType = tipo;
         }
 
+        public void TypeInit()
+        {
+            BackColor = (currentAction == SaveAction.Agregar) ? Resources.Colors.Success : Resources.Colors.Warning;
+            button1.BackColor = (currentAction == SaveAction.Agregar) ? Resources.Colors.Success : Resources.Colors.Warning;
+            button1.ForeColor = Color.White;
+            button2.BackColor = Resources.Colors.Secundary;
+            button2.ForeColor = Color.White;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             currentType.Estado = checkBox1.Checked;
             currentType.Descripcion = textBox1.Text;
 
             _service.Save(currentType, currentAction);
-            AppData.ViewsRepository.TiposCombustiblesView.GetData();
+            AppData.ViewsRepository.MarcasView.GetData();
             this.Hide();
         }
 

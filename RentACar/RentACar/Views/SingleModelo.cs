@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace RentACar.Views
 {
-    public partial class SingleTipoCombustible : Form
+    public partial class SingleModelo : Form
     {
         SaveAction currentAction = SaveAction.NuevaAccion;
-        private readonly Services.CombustiblesTiposService _service = new Services.CombustiblesTiposService();
-        CombustiblesTipos currentType;
-
+        private readonly Services.ModelosService _service = new Services.ModelosService();
+        private readonly Services.MarcasServices _marcasService = new Services.MarcasServices();
+        Models.Modelos currentType;
 
         public void TypeInit()
         {
@@ -28,40 +28,53 @@ namespace RentACar.Views
             button2.ForeColor = Color.White;
         }
 
-        public SingleTipoCombustible(SaveAction action)
+        public void FillMarcas()
         {
-            InitializeComponent();
-            currentAction = action;
-            TypeInit();
-            currentType = new CombustiblesTipos();
+            comboBox1.DataSource = _marcasService.GetTipos("", true).Select(x => x.Descripcion).ToList();
         }
 
-        public SingleTipoCombustible(SaveAction action, CombustiblesTipos tipo)
+        public SingleModelo(SaveAction action)
         {
             InitializeComponent();
             currentAction = action;
+            FillMarcas();
+            TypeInit();
+            currentType = new Models.Modelos();
+        }
+
+        public SingleModelo(SaveAction action, Models.Modelos tipo)
+        {
+            InitializeComponent();
+            currentAction = action;
+            FillMarcas();
             TypeInit();
 
             //Codigo de asignación
             textBox1.Text = tipo.Descripcion;
             checkBox1.Checked = tipo.Estado;
+            if (comboBox1.FindStringExact(tipo.Marcas.Descripcion) == -1)
+            {
+                comboBox1.Items.Add(tipo.Marcas.Descripcion);
+            }
+            comboBox1.SelectedIndex = comboBox1.FindStringExact(tipo.Marcas.Descripcion);
             //
 
             currentType = tipo;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            currentType.Estado = checkBox1.Checked;
-            currentType.Descripcion = textBox1.Text;
-
-            _service.Save(currentType, currentAction);
-            AppData.ViewsRepository.TiposCombustiblesView.GetData();
-            this.Hide();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            currentType.Descripcion = textBox1.Text;
+            currentType.Marca = _marcasService.GetSingleTipo(comboBox1.Text).Id;
+            currentType.Estado = checkBox1.Checked;
+
+            _service.Save(currentType, currentAction);
+            AppData.ViewsRepository.ModelosView.GetData();
             Close();
         }
     }
