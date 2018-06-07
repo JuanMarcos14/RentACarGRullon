@@ -104,6 +104,7 @@
             this.mantenimientoDeVehículosToolStripMenuItem.Name = "mantenimientoDeVehículosToolStripMenuItem";
             this.mantenimientoDeVehículosToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.mantenimientoDeVehículosToolStripMenuItem.Text = "Mantenimiento de Vehículos";
+            this.mantenimientoDeVehículosToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoDeVehículosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

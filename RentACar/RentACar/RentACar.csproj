@@ -157,6 +157,12 @@
     <Compile Include="Views\SingleTipoVehiculo.Designer.cs">
       <DependentUpon>SingleTipoVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SingleVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SingleVehiculo.Designer.cs">
+      <DependentUpon>SingleVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TiposCombustibles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,12 @@
     </Compile>
     <Compile Include="Views\TiposVehiculos.Designer.cs">
       <DependentUpon>TiposVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Vehiculos.Designer.cs">
+      <DependentUpon>Vehiculos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -202,11 +214,17 @@
     <EmbeddedResource Include="Views\SingleTipoVehiculo.resx">
       <DependentUpon>SingleTipoVehiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SingleVehiculo.resx">
+      <DependentUpon>SingleVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TiposCombustibles.resx">
       <DependentUpon>TiposCombustibles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TiposVehiculos.resx">
       <DependentUpon>TiposVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Vehiculos.resx">
+      <DependentUpon>Vehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\RentACarModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

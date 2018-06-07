@@ -42,5 +42,11 @@ namespace RentACar.Views
             AppData.ViewsRepository.ModelosView = new Modelos();
             AppData.ViewsRepository.ModelosView.Show();
         }
+
+        private void mantenimientoDeVehículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppData.ViewsRepository.VehiculosView = new Vehiculos();
+            AppData.ViewsRepository.VehiculosView.Show();
+        }
     }
 }
