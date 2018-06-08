@@ -53,19 +53,19 @@ namespace RentACar.Views
             {
                 comboBox2.Items.Add(_vehiculo.Marcas.Descripcion);
             }
-            comboBox2.SelectedIndex = comboBox1.FindStringExact(_vehiculo.Marcas.Descripcion);
+            comboBox2.SelectedIndex = comboBox2.FindStringExact(_vehiculo.Marcas.Descripcion);
 
             if (comboBox3.FindStringExact(_vehiculo.Modelos.Descripcion) == -1)
             {
                 comboBox3.Items.Add(_vehiculo.Modelos.Descripcion);
             }
-            comboBox3.SelectedIndex = comboBox1.FindStringExact(_vehiculo.Modelos.Descripcion);
+            comboBox3.SelectedIndex = comboBox3.FindStringExact(_vehiculo.Modelos.Descripcion);
 
             if (comboBox4.FindStringExact(_vehiculo.CombustiblesTipos.Descripcion) == -1)
             {
                 comboBox4.Items.Add(_vehiculo.CombustiblesTipos.Descripcion);
             }
-            comboBox4.SelectedIndex = comboBox1.FindStringExact(_vehiculo.CombustiblesTipos.Descripcion);
+            comboBox4.SelectedIndex = comboBox4.FindStringExact(_vehiculo.CombustiblesTipos.Descripcion);
 
             textBox1.Text = _vehiculo.NoPlaca;
             textBox2.Text = _vehiculo.NoMotor;
@@ -123,7 +123,7 @@ namespace RentACar.Views
             try
             {
                 comboBox3.Enabled = false;
-                var marcad = comboBox2.SelectedItem.ToString();
+                var marcad = comboBox2.SelectedItem?.ToString();
                 var marca = _db.Marcas.FirstOrDefault(y => y.Descripcion == marcad)?.Id;
                 var Model = _db.Modelos.Where(x => !x.Deleted && x.Estado && x.Marca == marca).Select(x => x.Descripcion).ToList();
                 comboBox3.DataSource = Model;
@@ -140,6 +140,11 @@ namespace RentACar.Views
 
                 throw;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

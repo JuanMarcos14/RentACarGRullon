@@ -104,11 +104,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Colors.cs" />
     <Compile Include="Enums\SaveAction.cs" />
+    <Compile Include="Services\ClientesService.cs" />
     <Compile Include="Services\CombustiblesTiposService.cs" />
     <Compile Include="Services\LoginServices.cs" />
     <Compile Include="Services\MarcasServices.cs" />
     <Compile Include="Services\Modelos.cs" />
     <Compile Include="Services\VehiculosTiposService.cs" />
+    <Compile Include="Views\Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +139,12 @@
     </Compile>
     <Compile Include="Views\Modelos.Designer.cs">
       <DependentUpon>Modelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SingleCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SingleCliente.Designer.cs">
+      <DependentUpon>SingleCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SingleMarca.cs">
       <SubType>Form</SubType>
@@ -181,6 +194,9 @@
     <Compile Include="Views\Vehiculos.Designer.cs">
       <DependentUpon>Vehiculos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Modelos.resx">
       <DependentUpon>Modelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SingleCliente.resx">
+      <DependentUpon>SingleCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SingleMarca.resx">
       <DependentUpon>SingleMarca.cs</DependentUpon>

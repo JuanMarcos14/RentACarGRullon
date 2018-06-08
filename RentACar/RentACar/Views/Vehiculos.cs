@@ -54,5 +54,17 @@ namespace RentACar.Views
             SingleVehiculo form = new SingleVehiculo(Enums.SaveAction.Editar, id);
             form.Show();
         }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea eliminar el registro?", "Sistema de Gestión de Rent A Car", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                var id = int.Parse(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+                var toDelete = _db.Vehiculos.FirstOrDefault(x => x.Id == id);
+                _db.Vehiculos.Remove(toDelete);
+                _db.SaveChanges();
+                GetData();
+            }
+        }
     }
 }

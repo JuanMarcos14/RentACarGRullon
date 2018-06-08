@@ -16,5 +16,6 @@ namespace RentACar.AppData
         public static Marcas MarcasView { get; set; }
         public static Modelos ModelosView { get; set; }
         public static Vehiculos VehiculosView { get; set; }
+        public static Clientes ClientesView { get; set; }
     }
 }
