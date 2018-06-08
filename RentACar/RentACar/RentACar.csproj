@@ -109,6 +109,7 @@
     <Compile Include="Services\LoginServices.cs" />
     <Compile Include="Services\MarcasServices.cs" />
     <Compile Include="Services\Modelos.cs" />
+    <Compile Include="Services\ReportesService.cs" />
     <Compile Include="Services\VehiculosTiposService.cs" />
     <Compile Include="Views\Clientes.cs">
       <SubType>Form</SubType>
