@@ -84,6 +84,7 @@
             this.rentasToolStripMenuItem.Name = "rentasToolStripMenuItem";
             this.rentasToolStripMenuItem.Size = new System.Drawing.Size(73, 21);
             this.rentasToolStripMenuItem.Text = "Rentas";
+            this.rentasToolStripMenuItem.Click += new System.EventHandler(this.rentasToolStripMenuItem_Click);
             // 
             // vehículosToolStripMenuItem
             // 
@@ -158,6 +159,7 @@
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
             this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(97, 21);
             this.empleadosToolStripMenuItem.Text = "Empleados";
+            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 

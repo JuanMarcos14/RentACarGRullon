@@ -20,7 +20,7 @@ namespace RentACar.Models
         public int Cliente { get; set; }
         public Nullable<System.DateTime> FechaRenta { get; set; }
         public Nullable<int> InspeccionRenta { get; set; }
-        public Nullable<int> FechaDevolucion { get; set; }
+        public Nullable<System.DateTime> FechaDevolucion { get; set; }
         public Nullable<int> InspeccionDevolucion { get; set; }
         public decimal MontoDiario { get; set; }
         public int CantidadDias { get; set; }

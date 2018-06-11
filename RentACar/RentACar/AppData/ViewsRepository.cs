@@ -17,5 +17,8 @@ namespace RentACar.AppData
         public static Modelos ModelosView { get; set; }
         public static Vehiculos VehiculosView { get; set; }
         public static Clientes ClientesView { get; set; }
+        public static Empleados EmpleadosView { get; set; }
+        public static Rentas RentasView { get; set; }
+        public static NuevaRenta NuevaRentaView { get; set; }
     }
 }

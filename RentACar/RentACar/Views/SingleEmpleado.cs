@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace RentACar.Views
 {
-    public partial class SingleCliente : Form
+    public partial class SingleEmpleado : Form
     {
         SaveAction currentAction = SaveAction.NuevaAccion;
         GrullonRCEntities _db = new GrullonRCEntities();
-        Models.Clientes currentClient = new Models.Clientes();
+        Models.Empleados currentClient = new Models.Empleados();
 
         public void TypeInit()
         {
@@ -28,39 +28,43 @@ namespace RentACar.Views
             panel2.BackColor = (currentAction == SaveAction.Agregar) ? Resources.Colors.Success : (currentAction == SaveAction.Editar) ? Resources.Colors.Warning : Resources.Colors.Info;
         }
 
-        public SingleCliente(SaveAction action)
+        /// <summary>
+        /// Método para instanciar un objeto de tipo SingleEmpleado cuando se va a agregar un nuevo empleado.
+        /// </summary>
+        /// <param name="action">Acción ha realizar</param>
+        public SingleEmpleado(SaveAction action)
         {
             InitializeComponent();
             currentAction = action;
             TypeInit();
         }
 
-        public SingleCliente(SaveAction action, Models.Clientes cliente)
+        public SingleEmpleado(SaveAction action, Models.Empleados empleado)
         {
             InitializeComponent();
             currentAction = action;
             TypeInit();
-            currentClient = cliente;
+            currentClient = empleado;
 
             textBox1.Text = currentClient.Nombre;
             textBox3.Text = currentClient.Cedula;
-            comboBox1.Text = (currentClient.TipoPersona == 1) ? "Persona Física" : "Persona Jurídica";
-            textBox4.Text = currentClient.NoTarjeta;
-            textBox5.Text = currentClient.LimiteCredito.ToString();
+            comboBox1.Text = (currentClient.TandaLabor == 1) ? "Matutina" : (currentClient.TandaLabor == 2) ? "Vespertina" : "Nocturna";
+            textBox4.Text = currentClient.PorcientoComision.ToString();
+            dateTimePicker1.Value = currentClient.FechaIngreso;
             checkBox1.Checked = currentClient.Estado;
             textBox1.Size = new Size(508, 25);
-
-            if (currentAction == SaveAction.Ver)
+            
+            if (action == SaveAction.Ver)
             {
                 textBox1.Enabled = false;
                 textBox3.Enabled = false;
                 comboBox1.Enabled = false;
                 textBox4.Enabled = false;
-                textBox5.Enabled = false;
+                dateTimePicker1.Enabled = false;
                 checkBox1.Enabled = false;
                 button1.Enabled = false;
-                button2.Text = "Salir";
             }
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -90,28 +94,28 @@ namespace RentACar.Views
             if (currentAction == SaveAction.Agregar) { Add(); }
             if (currentAction == SaveAction.Editar) { Edit(); }
 
-            AppData.ViewsRepository.ClientesView.GetData();
+            AppData.ViewsRepository.EmpleadosView.GetData();
             Close();
         }
-        
+
         private void Edit()
         {
             try
             {
-                var _currentClient = _db.Clientes.FirstOrDefault(x => x.Id == currentClient.Id);
-                _currentClient.Nombre = textBox1.Text;
-                _currentClient.Cedula = textBox3.Text;
-                _currentClient.TipoPersona = (comboBox1.SelectedItem.ToString() == "Persona Física") ? 1 : 2;
-                _currentClient.NoTarjeta = (textBox4.Text.Length > 16) ? textBox4.Text.Remove(16) : textBox4.Text;
-                _currentClient.LimiteCredito = decimal.Parse(textBox5.Text);
-                _currentClient.Deleted = false;
-                _currentClient.Estado = checkBox1.Checked;
+                var _currentEmployee = _db.Empleados.FirstOrDefault(e => e.Id == currentClient.Id);
+
+                _currentEmployee.Nombre = textBox1.Text;
+                _currentEmployee.Cedula = textBox3.Text;
+                _currentEmployee.TandaLabor = getTanda(comboBox1.Text);
+                _currentEmployee.PorcientoComision = decimal.Parse(textBox4.Text);
+                _currentEmployee.FechaIngreso = dateTimePicker1.Value;
+                _currentEmployee.Estado = checkBox1.Checked;
 
                 _db.SaveChanges();
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -119,23 +123,50 @@ namespace RentACar.Views
         {
             try
             {
-                _db.Clientes.Add(new Models.Clientes
-                {
-                    Nombre = textBox1.Text + " " + textBox2.Text,
-                    Cedula = textBox3.Text,
-                    TipoPersona = (comboBox1.SelectedItem.ToString() == "Persona Física") ? 1 : 2,
-                    NoTarjeta = (textBox4.Text.Length > 16) ? textBox4.Text.Remove(16) : textBox4.Text,
-                    LimiteCredito = decimal.Parse(textBox5.Text),
-                    Deleted = false,
-                    Estado = checkBox1.Checked
-                });
+                var _currentEmployee = new Models.Empleados();
+
+                _currentEmployee.Nombre = $"{textBox1.Text} {textBox2.Text}";
+                _currentEmployee.Cedula = textBox3.Text;
+                _currentEmployee.TandaLabor = getTanda(comboBox1.Text);
+                _currentEmployee.PorcientoComision = decimal.Parse(textBox4.Text);
+                _currentEmployee.FechaIngreso = dateTimePicker1.Value;
+                _currentEmployee.Estado = checkBox1.Checked;
+
+                ///
+                _currentEmployee.User = UserGenerator(textBox1.Text, textBox2.Text);
+                _currentEmployee.Password = _currentEmployee.Cedula;
+                _currentEmployee.CreatedAt = DateTime.Now;
+                _currentEmployee.Deleted = false;
+                ///
+
+                _db.Empleados.Add(_currentEmployee);
 
                 _db.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error: no se pudieron guardar los datos. Verifique que estén en el formato correcto", "Sistema de Gestión de Rent A Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                throw;
             }
         }
+
+        public string UserGenerator(string nombre, string apellidos)
+        {
+            try
+            {
+                string user = nombre[0] + apellidos.Split(' ').FirstOrDefault();
+                return user.ToLower();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int getTanda(string tanda)
+        {
+            return (tanda == "Matutina") ? 1 : (tanda == "Vespertina") ? 2 : (tanda == "Noctura") ? 3 : -1;  
+        }   
     }
 }

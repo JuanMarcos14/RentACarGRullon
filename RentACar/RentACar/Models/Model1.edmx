@@ -92,7 +92,7 @@
           <Property Name="Cliente" Type="int" Nullable="false" />
           <Property Name="FechaRenta" Type="datetime" />
           <Property Name="InspeccionRenta" Type="int" />
-          <Property Name="FechaDevolucion" Type="int" />
+          <Property Name="FechaDevolucion" Type="datetime" />
           <Property Name="InspeccionDevolucion" Type="int" />
           <Property Name="MontoDiario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="CantidadDias" Type="int" Nullable="false" />
@@ -311,7 +311,7 @@
           <Property Name="Cliente" Type="Int32" Nullable="false" />
           <Property Name="FechaRenta" Type="DateTime" Precision="3" />
           <Property Name="InspeccionRenta" Type="Int32" />
-          <Property Name="FechaDevolucion" Type="Int32" />
+          <Property Name="FechaDevolucion" Type="DateTime" Precision="3" />
           <Property Name="InspeccionDevolucion" Type="Int32" />
           <Property Name="MontoDiario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="CantidadDias" Type="Int32" Nullable="false" />

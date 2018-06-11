@@ -70,6 +70,8 @@ namespace RentACar.Views
             textBox1.Text = _vehiculo.NoPlaca;
             textBox2.Text = _vehiculo.NoMotor;
             textBox3.Text = _vehiculo.NoChasis;
+
+            currentType = _vehiculo;
         }
 
         public void TypeInit()
@@ -106,7 +108,7 @@ namespace RentACar.Views
                 toUpdate.TipoVehiculo = (int)_db.VehiculosTipos.FirstOrDefault(x => x.Descripcion == comboBox1.Text)?.Id;
                 toUpdate.Marca = (int)_db.Marcas.FirstOrDefault(x => x.Descripcion == comboBox2.Text)?.Id;
                 toUpdate.Modelo = (int)_db.Modelos.FirstOrDefault(x => x.Descripcion == comboBox3.Text)?.Id;
-                toUpdate.TipoCombustible = (int)_db.CombustiblesTipos.FirstOrDefault(x => x.Descripcion == comboBox1.Text)?.Id;
+                toUpdate.TipoCombustible = (int)_db.CombustiblesTipos.FirstOrDefault(x => x.Descripcion == comboBox4.Text)?.Id;
                 toUpdate.NoChasis = textBox3.Text;
                 toUpdate.NoMotor = textBox2.Text;
                 toUpdate.NoPlaca = textBox1.Text;

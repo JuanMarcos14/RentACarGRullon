@@ -59,5 +59,17 @@ namespace RentACar.Views
             AppData.ViewsRepository.ClientesView = new Clientes();
             AppData.ViewsRepository.ClientesView.Show();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppData.ViewsRepository.EmpleadosView = new Empleados();
+            AppData.ViewsRepository.EmpleadosView.Show();
+        }
+
+        private void rentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppData.ViewsRepository.RentasView = new Rentas();
+            AppData.ViewsRepository.RentasView.Show();
+        }
     }
 }

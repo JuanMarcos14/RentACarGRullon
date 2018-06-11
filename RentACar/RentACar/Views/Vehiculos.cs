@@ -25,6 +25,8 @@ namespace RentACar.Views
                        {
                            v.Id,
                            Descripcion = v.Marcas.Descripcion + " " + v.Modelos.Descripcion + " " + v.NoPlaca,
+                           v.NoMotor,
+                           v.NoChasis,
                            Estado = (v.Estado == 1) ? "Disponible" : (v.Estado == 2) ? "Alquilado" : "Desactivado",
                        }).ToList();
 

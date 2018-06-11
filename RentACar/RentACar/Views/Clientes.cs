@@ -14,9 +14,10 @@ namespace RentACar.Views
     public partial class Clientes : Form
     {
         Models.GrullonRCEntities _db = new Models.GrullonRCEntities();
-
+        bool FromRenta;
         public void GetData()
         {
+            dataGridView1.DataSource = null;
             var Model = _db.Clientes.Where(x => !x.Deleted && ((textBox1.Text == "" || textBox1.Text == null
             || x.Cedula.Contains(textBox1.Text) || x.Nombre.Contains(textBox1.Text)))).ToList();
 
@@ -29,8 +30,9 @@ namespace RentACar.Views
             }).ToList();
         }
 
-        public Clientes()
+        public Clientes(bool fromRenta = false)
         {
+            FromRenta = fromRenta;
             InitializeComponent();
             panel1.BackColor = Resources.Colors.Primary;
             GetData();
@@ -47,6 +49,18 @@ namespace RentACar.Views
             var id = int.Parse(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
             SingleCliente form = new SingleCliente(SaveAction.Ver, _db.Clientes.FirstOrDefault(c => c.Id == id));
             form.Show();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+            SingleCliente form = new SingleCliente(SaveAction.Editar, _db.Clientes.FirstOrDefault(c => c.Id == id));
+            form.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
