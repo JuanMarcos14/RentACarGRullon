@@ -8,6 +8,18 @@ namespace RentACar.Resources
 {
     class Validator
     {
+        public static bool StringToDecimal(string param)
+        {
+            decimal test;
+            return (decimal.TryParse(param, out test));
+        }
+
+        public static bool StringToInteger(string param)
+        {
+            decimal test;
+            return (decimal.TryParse(param, out test));
+        }
+
         public static bool ValidarCedula(string cedula)
         {
             if (cedula == "00000000000") { return false; }

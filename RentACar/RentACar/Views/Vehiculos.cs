@@ -33,10 +33,11 @@ namespace RentACar.Views
             dataGridView1.DataSource = model;
         }
 
-        public Vehiculos()
+        public Vehiculos(bool renta = false)
         {
             InitializeComponent();
             GetData();
+            toolStripMenuItem2.Visible = renta;
         }
 
         private void nuevoTipoDeVehículoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,6 +67,22 @@ namespace RentACar.Views
                 _db.Vehiculos.Remove(toDelete);
                 _db.SaveChanges();
                 GetData();
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+            var vehiculo = _db.Vehiculos.First(x => x.Id == id);
+            if (vehiculo.Estado == 2)
+            {
+                MessageBox.Show("No puede seleccionar un vehículo que no esté disponible.", "Sistema de Gestión de Rent A Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                AppData.ViewsRepository.NuevaRentaView.SetVehiculo(id);
+                Close();
             }
         }
     }

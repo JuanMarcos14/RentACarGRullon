@@ -95,7 +95,7 @@ namespace RentACar.Views
             AppData.ViewsRepository.ClientesView.GetData();
             Close();
         }
-        
+
         private void Edit()
         {
             try
@@ -113,32 +113,32 @@ namespace RentACar.Views
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
-        private void Edit()
-        {
-            try
-            {
-                var cliente = _db.Clientes.FirstOrDefault(x => x.Id == currentClient.Id);
+        //private void Edit()
+        //{
+        //    try
+        //    {
+        //        var cliente = _db.Clientes.FirstOrDefault(x => x.Id == currentClient.Id);
 
-                cliente.Nombre = textBox1.Text + " " + textBox2.Text;
-                cliente.Cedula = textBox3.Text;
-                cliente.TipoPersona = (comboBox1.SelectedItem.ToString() == "Persona Física") ? 1 : 2;
-                cliente.NoTarjeta = (textBox4.Text.Length > 16) ? textBox4.Text.Remove(16) : textBox1.Text;
-                cliente.LimiteCredito = decimal.Parse(textBox5.Text);
-                cliente.Deleted = false;
-                cliente.Estado = checkBox1.Checked;               
+        //        cliente.Nombre = textBox1.Text + " " + textBox2.Text;
+        //        cliente.Cedula = textBox3.Text;
+        //        cliente.TipoPersona = (comboBox1.SelectedItem.ToString() == "Persona Física") ? 1 : 2;
+        //        cliente.NoTarjeta = (textBox4.Text.Length > 16) ? textBox4.Text.Remove(16) : textBox1.Text;
+        //        cliente.LimiteCredito = decimal.Parse(textBox5.Text);
+        //        cliente.Deleted = false;
+        //        cliente.Estado = checkBox1.Checked;
 
-                _db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
+        //        _db.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         private void Add()
         {

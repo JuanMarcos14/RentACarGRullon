@@ -21,12 +21,13 @@ namespace RentACar.Views
             var Model = _db.Clientes.Where(x => !x.Deleted && ((textBox1.Text == "" || textBox1.Text == null
             || x.Cedula.Contains(textBox1.Text) || x.Nombre.Contains(textBox1.Text)))).ToList();
 
-            dataGridView1.DataSource = Model.Select(x => new {
+            dataGridView1.DataSource = Model.Select(x => new
+            {
                 x.Id,
                 x.Nombre,
                 TipoPersona = (x.TipoPersona == 1) ? "Física" : "Jurídica",
                 x.Cedula,
-                Estado = (x.Estado) ? "Activo" : "Inactivo"                
+                Estado = (x.Estado) ? "Activo" : "Inactivo"
             }).ToList();
         }
 
@@ -36,6 +37,7 @@ namespace RentACar.Views
             InitializeComponent();
             panel1.BackColor = Resources.Colors.Primary;
             GetData();
+            toolStripMenuItem2.Visible = fromRenta;
         }
 
         private void nuevoTipoDeVehículoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,7 +62,9 @@ namespace RentACar.Views
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            var id = int.Parse(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+            AppData.ViewsRepository.NuevaRentaView.SetCliente(_db.Clientes.FirstOrDefault(x => x.Id == id));
+            Close();
         }
     }
 }
