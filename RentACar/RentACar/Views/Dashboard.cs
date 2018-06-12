@@ -71,5 +71,87 @@ namespace RentACar.Views
             AppData.ViewsRepository.RentasView = new Rentas();
             AppData.ViewsRepository.RentasView.Show();
         }
+
+        private void vehiculosAúnAlquiladosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var _db = new Models.GrullonRCEntities())
+            {
+                var model = _db.Rentas.Where(x => x.Estado == 1)
+                           .Select(renta => new Models.Alquilados
+                           {
+                               Vehiculo = _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Marcas.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Modelos.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).NoPlaca,
+                               Cliente = _db.Clientes.FirstOrDefault(x => x.Id == renta.Cliente).Nombre,
+                               Empleado = _db.Empleados.FirstOrDefault(x => x.Id == renta.Empleado).Nombre,
+                               FechaRenta = (DateTime) renta.FechaRenta
+                           }).ToList();
+
+
+                Informes form = new Informes(model);
+                form.Show();
+            }
+        }
+
+        private void hoyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (var _db = new Models.GrullonRCEntities())
+            {
+                var date = DateTime.Now.AddDays(-1);
+                var model = _db.Rentas
+                           .Where(x => x.FechaRenta > date)
+                           .Select(renta => new Models.Alquilados
+                           {
+                               Vehiculo = _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Marcas.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Modelos.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).NoPlaca,
+                               Cliente = _db.Clientes.FirstOrDefault(x => x.Id == renta.Cliente).Nombre,
+                               Empleado = _db.Empleados.FirstOrDefault(x => x.Id == renta.Empleado).Nombre,
+                               FechaRenta = (DateTime)renta.FechaRenta
+                           }).ToList();
+
+
+                Informes form = new Informes(model);
+                form.Show();
+            }
+        }
+
+        private void estaSemanaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (var _db = new Models.GrullonRCEntities())
+            {
+                var date = DateTime.Now.AddDays(-7);
+                var model = _db.Rentas
+                           .Where(x => x.FechaRenta > date)
+                           .Select(renta => new Models.Alquilados
+                           {
+                               Vehiculo = _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Marcas.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Modelos.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).NoPlaca,
+                               Cliente = _db.Clientes.FirstOrDefault(x => x.Id == renta.Cliente).Nombre,
+                               Empleado = _db.Empleados.FirstOrDefault(x => x.Id == renta.Empleado).Nombre,
+                               FechaRenta = (DateTime)renta.FechaRenta
+                           }).ToList();
+
+
+                Informes form = new Informes(model);
+                form.Show();
+            }
+        }
+
+        private void esteMesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (var _db = new Models.GrullonRCEntities())
+            {
+                var date = DateTime.Now.AddMonths(-1);
+                var model = _db.Rentas
+                           .Where(x => x.FechaRenta > date)
+                           .Select(renta => new Models.Alquilados
+                           {
+                               Vehiculo = _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Marcas.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).Modelos.Descripcion + " " + _db.Vehiculos.FirstOrDefault(x => x.Id == renta.Id).NoPlaca,
+                               Cliente = _db.Clientes.FirstOrDefault(x => x.Id == renta.Cliente).Nombre,
+                               Empleado = _db.Empleados.FirstOrDefault(x => x.Id == renta.Empleado).Nombre,
+                               FechaRenta = (DateTime)renta.FechaRenta
+                           }).ToList();
+
+
+                Informes form = new Informes(model);
+                form.Show();
+            }
+        }
     }
 }

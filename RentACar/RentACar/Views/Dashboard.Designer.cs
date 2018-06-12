@@ -47,14 +47,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comisiónPorEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vehiculosRentadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hoyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.esteMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hoyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.estaSemanaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.esteMesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiculosRentadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiculosAúnAlquiladosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -172,8 +169,8 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.comisiónPorEmpleadoToolStripMenuItem,
-            this.vehiculosRentadosToolStripMenuItem});
+            this.vehiculosRentadosToolStripMenuItem,
+            this.vehiculosAúnAlquiladosToolStripMenuItem});
             this.reportesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reportesToolStripMenuItem.Image")));
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
@@ -225,15 +222,26 @@
             this.panel1.Size = new System.Drawing.Size(699, 2);
             this.panel1.TabIndex = 5;
             // 
-            // comisiónPorEmpleadoToolStripMenuItem
+            // hoyToolStripMenuItem1
             // 
-            this.comisiónPorEmpleadoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hoyToolStripMenuItem,
-            this.estaSemanaToolStripMenuItem,
-            this.esteMesToolStripMenuItem});
-            this.comisiónPorEmpleadoToolStripMenuItem.Name = "comisiónPorEmpleadoToolStripMenuItem";
-            this.comisiónPorEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.comisiónPorEmpleadoToolStripMenuItem.Text = "Comisión por Empleado";
+            this.hoyToolStripMenuItem1.Name = "hoyToolStripMenuItem1";
+            this.hoyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.hoyToolStripMenuItem1.Text = "Hoy";
+            this.hoyToolStripMenuItem1.Click += new System.EventHandler(this.hoyToolStripMenuItem1_Click);
+            // 
+            // estaSemanaToolStripMenuItem1
+            // 
+            this.estaSemanaToolStripMenuItem1.Name = "estaSemanaToolStripMenuItem1";
+            this.estaSemanaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.estaSemanaToolStripMenuItem1.Text = "Esta Semana";
+            this.estaSemanaToolStripMenuItem1.Click += new System.EventHandler(this.estaSemanaToolStripMenuItem1_Click);
+            // 
+            // esteMesToolStripMenuItem1
+            // 
+            this.esteMesToolStripMenuItem1.Name = "esteMesToolStripMenuItem1";
+            this.esteMesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.esteMesToolStripMenuItem1.Text = "Este Mes";
+            this.esteMesToolStripMenuItem1.Click += new System.EventHandler(this.esteMesToolStripMenuItem1_Click);
             // 
             // vehiculosRentadosToolStripMenuItem
             // 
@@ -241,45 +249,18 @@
             this.hoyToolStripMenuItem1,
             this.estaSemanaToolStripMenuItem1,
             this.esteMesToolStripMenuItem1});
+            this.vehiculosRentadosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vehiculosRentadosToolStripMenuItem.Image")));
             this.vehiculosRentadosToolStripMenuItem.Name = "vehiculosRentadosToolStripMenuItem";
-            this.vehiculosRentadosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.vehiculosRentadosToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.vehiculosRentadosToolStripMenuItem.Text = "Vehiculos Rentados";
             // 
-            // hoyToolStripMenuItem
+            // vehiculosAúnAlquiladosToolStripMenuItem
             // 
-            this.hoyToolStripMenuItem.Name = "hoyToolStripMenuItem";
-            this.hoyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.hoyToolStripMenuItem.Text = "Hoy";
-            // 
-            // estaSemanaToolStripMenuItem
-            // 
-            this.estaSemanaToolStripMenuItem.Name = "estaSemanaToolStripMenuItem";
-            this.estaSemanaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.estaSemanaToolStripMenuItem.Text = "Esta Semana";
-            // 
-            // esteMesToolStripMenuItem
-            // 
-            this.esteMesToolStripMenuItem.Name = "esteMesToolStripMenuItem";
-            this.esteMesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.esteMesToolStripMenuItem.Text = "Este Mes";
-            // 
-            // hoyToolStripMenuItem1
-            // 
-            this.hoyToolStripMenuItem1.Name = "hoyToolStripMenuItem1";
-            this.hoyToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.hoyToolStripMenuItem1.Text = "Hoy";
-            // 
-            // estaSemanaToolStripMenuItem1
-            // 
-            this.estaSemanaToolStripMenuItem1.Name = "estaSemanaToolStripMenuItem1";
-            this.estaSemanaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.estaSemanaToolStripMenuItem1.Text = "Esta Semana";
-            // 
-            // esteMesToolStripMenuItem1
-            // 
-            this.esteMesToolStripMenuItem1.Name = "esteMesToolStripMenuItem1";
-            this.esteMesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.esteMesToolStripMenuItem1.Text = "Este Mes";
+            this.vehiculosAúnAlquiladosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vehiculosAúnAlquiladosToolStripMenuItem.Image")));
+            this.vehiculosAúnAlquiladosToolStripMenuItem.Name = "vehiculosAúnAlquiladosToolStripMenuItem";
+            this.vehiculosAúnAlquiladosToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.vehiculosAúnAlquiladosToolStripMenuItem.Text = "Vehiculos Aún Alquilados";
+            this.vehiculosAúnAlquiladosToolStripMenuItem.Click += new System.EventHandler(this.vehiculosAúnAlquiladosToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -332,13 +313,10 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripMenuItem comisiónPorEmpleadoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hoyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estaSemanaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem esteMesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehiculosRentadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hoyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem estaSemanaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem esteMesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem vehiculosAúnAlquiladosToolStripMenuItem;
     }
 }
